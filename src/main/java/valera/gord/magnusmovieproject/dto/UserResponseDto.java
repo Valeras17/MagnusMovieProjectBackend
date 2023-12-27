@@ -1,6 +1,5 @@
 package valera.gord.magnusmovieproject.dto;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

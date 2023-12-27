@@ -1,12 +1,10 @@
 package valera.gord.magnusmovieproject.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity(name = "users")
 @Getter

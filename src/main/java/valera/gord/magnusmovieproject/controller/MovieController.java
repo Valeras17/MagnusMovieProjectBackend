@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
-import valera.gord.magnusmovieproject.dto.UserRequestDto;
 import valera.gord.magnusmovieproject.service.MovieService;
 
 import java.util.List;
@@ -20,7 +19,6 @@ import java.util.List;
 public class MovieController {
 
     private final MovieService movieService;
-    private final ModelMapper modelMapper;
 
     @PostMapping
     public ResponseEntity<MovieResponseDto> addMovie(@RequestBody MovieRequestDto movieRequestDto) {
