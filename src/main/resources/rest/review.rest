@@ -1,0 +1,8 @@
+### Add new review :
+POST http://localhost:8080//api/v1/movies/1/reviews/1
+Content-Type: application/json
+
+{
+  "username": "batman",
+  "textReview": "man in pants"
+}

@@ -1,12 +1,13 @@
 package valera.gord.magnusmovieproject.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,12 +19,26 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     private String title;
+    @NotNull
     private String description;
+    @NotNull
     private LocalDate releaseDate;
+    @NotNull
     private String genre;
-    private Integer duration; // in minutes
+    @NotNull
+    private Integer duration;
+    @NotNull
     private String director;
+    @NotNull
     private String cast;
+
+    // Отношение с отзывами
+    @OneToMany(
+            mappedBy = "movie",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Review> reviews = new HashSet<>();
+
 }

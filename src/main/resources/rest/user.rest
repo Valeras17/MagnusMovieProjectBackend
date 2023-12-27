@@ -14,7 +14,7 @@ GET http://localhost:8080/api/v1/users
 
 
 ### Invalid request to find user by id:
-GET http://localhost:8080/api/v1/users/1000000
+GET http://localhost:8080/api/v1/users/abs
 
 
 ### Update user by id:

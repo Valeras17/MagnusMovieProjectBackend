@@ -7,20 +7,24 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 @Entity
 public class Review {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String movie;
-    private String reviweText;
-    private Integer rating;
 
+    private String textReview;
+    private String email;
 
-    // relationship: ManytoOne
+    // Отношение с пользователем
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
+    // Отношение с фильмом
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
+    }
 
-}
