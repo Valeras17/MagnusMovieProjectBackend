@@ -1,0 +1,52 @@
+### Create new user:
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "username": "batman",
+  "email": "batman@robin.com",
+  "password": "Passwor1!"
+}
+
+
+### Valid request to find all users:
+GET http://localhost:8080/api/v1/users
+
+
+### Invalid request to find user by id:
+GET http://localhost:8080/api/v1/users/1000000
+
+
+### Update user by id:
+PUT http://localhost:8080/api/v1/users/403
+Content-Type: application/json
+
+{
+  "username": "baron",
+  "email": "brandon@win.com",
+  "password": "Passwor1!"
+}
+
+### Delete user by id:
+DELETE http://localhost:8080/api/v1/users/405
+
+
+### Delete user by id:
+DELETE http://localhost:8080/api/v1/users
+
+
+### Get users  page 1 :
+GET http://localhost:8080/api/v1/users/page?pageSize=2&pageNo=0
+
+
+### Get users page 2 :
+GET http://localhost:8080/api/v1/users/page?pageSize=2&pageNo=0
+
+
+### Get users page with sort  and  sort order :
+GET http://localhost:8080/api/v1/users/page?pageSize=3&pageNo=0&sortBy=username&sortDir=asc
+
+
+
+
+

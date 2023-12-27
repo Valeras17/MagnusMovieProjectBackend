@@ -1,0 +1,62 @@
+### Add new Movie :
+POST http://localhost:8080/api/v1/movies
+Content-Type: application/json
+
+{
+  "title": "batman 10 team",
+  "description": "man of rubber fist",
+  "duration": 200,
+  "genre": "cartoon!",
+  "cast": "Deni deVito",
+  "director": "Vilnev Fry",
+  "releaseDate": "2005-05-05"
+}
+
+
+### Get all Movies :
+GET http://localhost:8080/api/v1/movies
+
+
+### Valid request get movie by id :
+GET http://localhost:8080/api/v1/movies/15
+
+
+### Invalid request get movie by id :
+GET http://localhost:8080/api/v1/movies/1111
+
+
+### Update movie by id :
+PUT http://localhost:8080/api/v1/movies/14
+Content-Type: application/json
+
+{
+  "title": "batman 20 team",
+  "description": "man of rubber fist and red shirt",
+  "duration": 200,
+  "genre": "cartoon!",
+  "cast": "Ben deVito",
+  "director": "Nolan Fry",
+  "releaseDate": "2007-07-07"
+}
+
+
+### Delete movie by id :
+DELETE http://localhost:8080/api/v1/movies/14
+Content-Type: application/json
+
+
+### Get movie  page 1 :
+GET http://localhost:8080/api/v1/movies/page?pageSize=5&pageNo=0
+
+
+### Get movie page 2 :
+GET http://localhost:8080/api/v1/movies/page?pageSize=10&pageNo=0
+
+
+
+
+
+
+
+
+
