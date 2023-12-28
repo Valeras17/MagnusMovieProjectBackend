@@ -3,7 +3,7 @@ POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
 
 {
-  "title": "batman 10 team",
+  "title": "batman 5 team",
   "description": "man of rubber fist",
   "duration": 200,
   "genre": "cartoon!",
@@ -18,7 +18,7 @@ GET http://localhost:8080/api/v1/movies
 
 
 ### Valid request get movie by id :
-GET http://localhost:8080/api/v1/movies/15
+GET http://localhost:8080/api/v1/movies/4
 
 
 ### Invalid request get movie by id :
@@ -26,7 +26,7 @@ GET http://localhost:8080/api/v1/movies/1111
 
 
 ### Update movie by id :
-PUT http://localhost:8080/api/v1/movies/14
+PUT http://localhost:8080/api/v1/movies/1
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 
 ### Delete movie by id :
-DELETE http://localhost:8080/api/v1/movies/14
+DELETE http://localhost:8080/api/v1/movies/5
 Content-Type: application/json
 
 
@@ -49,8 +49,7 @@ Content-Type: application/json
 GET http://localhost:8080/api/v1/movies/page?pageSize=5&pageNo=0
 
 
-### Get movie page 2 :
-GET http://localhost:8080/api/v1/movies/page?pageSize=10&pageNo=0
+
 
 
 

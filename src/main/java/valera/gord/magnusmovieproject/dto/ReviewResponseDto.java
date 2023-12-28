@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReviewResponseDto {
     private Long id;
-
     private String textReview;
-    private String username;
-
+    private String rating;
 }

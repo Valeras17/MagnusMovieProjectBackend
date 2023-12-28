@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserRequestDto {
+
     @NotNull
     private String username;
     @NotNull

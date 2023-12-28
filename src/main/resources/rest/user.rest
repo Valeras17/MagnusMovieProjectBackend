@@ -3,7 +3,7 @@ POST http://localhost:8080/api/v1/users
 Content-Type: application/json
 
 {
-  "username": "batman",
+  "username": "batman6",
   "email": "batman@robin.com",
   "password": "Passwor1!"
 }
@@ -18,7 +18,7 @@ GET http://localhost:8080/api/v1/users/abs
 
 
 ### Update user by id:
-PUT http://localhost:8080/api/v1/users/403
+PUT http://localhost:8080/api/v1/users/1
 Content-Type: application/json
 
 {
@@ -28,10 +28,10 @@ Content-Type: application/json
 }
 
 ### Delete user by id:
-DELETE http://localhost:8080/api/v1/users/405
+DELETE http://localhost:8080/api/v1/users/6
 
 
-### Delete user by id:
+### Delete user all :
 DELETE http://localhost:8080/api/v1/users
 
 
@@ -40,7 +40,7 @@ GET http://localhost:8080/api/v1/users/page?pageSize=2&pageNo=0
 
 
 ### Get users page 2 :
-GET http://localhost:8080/api/v1/users/page?pageSize=2&pageNo=0
+GET http://localhost:8080/api/v1/users/page?pageSize=1&pageNo=0
 
 
 ### Get users page with sort  and  sort order :
