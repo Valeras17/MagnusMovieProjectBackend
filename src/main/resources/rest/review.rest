@@ -4,6 +4,40 @@ Content-Type: application/json
 userId: 1
 
 {
-  "textReview": "norm movie!",
-  "rating": "2"
+  "textReview": "gavno5 movie!",
+  "rating": "7"
 }
+
+
+### Get review by movie id  :
+GET http://localhost:8080/api/v1/movies/1/reviews
+
+### Get review by movie id, INVALID request movies id:
+GET http://localhost:8080/api/v1/movies/-1/reviews
+
+
+### Update review by id:Valid request
+PUT http://localhost:8080/api/v1/movies/reviews/7
+Content-Type: application/json
+
+{
+  "textReview": "gavno vozvrashaetsya 6",
+  "rating": "1"
+}
+
+
+### Update review by id:Invalid request
+PUT http://localhost:8080/api/v1/movies/reviews/-7
+Content-Type: application/json
+
+{
+  "textReview": "gavno vozvrashaetsya 6",
+  "rating": "1"
+}
+
+
+### Delete review by id:Valid request
+DELETE http://localhost:8080/api/v1/movies/reviews/3
+
+
+

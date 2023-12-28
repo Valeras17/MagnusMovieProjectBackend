@@ -17,12 +17,12 @@ public class Review {
     private String rating;
 
 
-    // Отношение с пользователем
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Отношение с фильмом
+
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
