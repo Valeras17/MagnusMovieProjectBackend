@@ -2,6 +2,7 @@ package valera.gord.magnusmovieproject.service;
 
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
+import valera.gord.magnusmovieproject.dto.MovieWithReviewDto;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface MovieService {
 
     MovieResponseDto deleteMovieById(long id);
 
-    List<MovieResponseDto> getAllMovies(int pageNo, int pageSize);
+    List<MovieWithReviewDto> getAllMovies(int pageNo, int pageSize);
 }

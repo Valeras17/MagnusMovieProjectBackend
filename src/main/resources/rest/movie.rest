@@ -3,6 +3,21 @@ POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
 
 {
+  "title": "batm23 2221 team",
+  "description": "man1 of rubber fist",
+  "duration": 111,
+  "genre": "cartoon1!",
+  "cast": "Deni deVito1",
+  "director": "Vilnev Fry1",
+  "releaseDate": "1903-05-05"
+}
+
+
+### INVALID request add Movie :
+POST http://localhost:8080/api/v1/movies
+Content-Type: application/json
+
+{
   "title": "batman 5 team",
   "description": "man of rubber fist",
   "duration": 200,
@@ -41,7 +56,7 @@ Content-Type: application/json
 
 
 ### Delete movie by id :
-DELETE http://localhost:8080/api/v1/movies/5
+DELETE http://localhost:8080/api/v1/movies/1
 Content-Type: application/json
 
 

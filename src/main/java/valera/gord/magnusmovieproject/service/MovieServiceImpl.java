@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
+import valera.gord.magnusmovieproject.dto.MovieWithReviewDto;
 import valera.gord.magnusmovieproject.entity.Movie;
 import valera.gord.magnusmovieproject.error.BadRequestException;
 import valera.gord.magnusmovieproject.error.ResourceNotFoundException;
@@ -27,10 +28,10 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MovieResponseDto addMovie(MovieRequestDto movieRequestDto) {
         Movie movie = modelMapper.map(movieRequestDto, Movie.class);
-        Optional<Movie> existingMovie = movieRepository.findByTitleAndReleaseDate(
-                movie.getTitle(), movie.getReleaseDate());
+        Optional<Movie> existingMovie = movieRepository.findByTitle(
+                movie.getTitle());
         if (existingMovie.isPresent()) {
-            throw new BadRequestException("Movie", "A movie with the same title and release date already exists.");
+            throw new BadRequestException("Movie", "A movie with the same title  already exists.");
         }
         Movie savedMovie = movieRepository.save(movie);
         return modelMapper.map(savedMovie, MovieResponseDto.class);
@@ -82,13 +83,13 @@ public class MovieServiceImpl implements MovieService {
     }
     //Pagination
     @Override
-    public List<MovieResponseDto> getAllMovies(int pageNo, int pageSize) {
+    public List<MovieWithReviewDto> getAllMovies(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo,pageSize);
         Page<Movie> page = movieRepository.findAll(pageable);
         return
                 page.getContent()
                         .stream()
-                        .map(movie -> modelMapper.map(movie,MovieResponseDto.class))
+                        .map(movie -> modelMapper.map(movie, MovieWithReviewDto.class))
                         .toList();
 
     }
@@ -104,12 +105,6 @@ public class MovieServiceImpl implements MovieService {
 
 
 
-
-//    Optional<Movie> existingMovie = movieRepository.findByTitleAndReleaseDate(movie.getTitle(), movie.getReleaseDate());
-//        if (existingMovie.isPresent()) {
-//        throw new BadRequestException("Movie", "A movie with the same title and release date already exists.");
-//    }
-//        return movieRepository.save(movie);
 
 
 

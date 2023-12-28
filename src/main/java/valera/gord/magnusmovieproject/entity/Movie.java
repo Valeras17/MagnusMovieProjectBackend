@@ -15,6 +15,7 @@ import java.util.Set;
 @ToString
 @Builder
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "title")})
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
