@@ -13,4 +13,6 @@ public class ReviewResponseDto {
     private Long id;
     private String textReview;
     private Long rating;
+
+    private UserResponseDto user;
 }

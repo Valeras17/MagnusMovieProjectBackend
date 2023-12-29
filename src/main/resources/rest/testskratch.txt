@@ -1,0 +1,14 @@
+public ReviewResponseDto addNewReview(long movieId, ReviewRequestDto dto, Authentication authentication) {
+        String username = authentication.getName(); // Получаем имя пользователя из объекта Authentication
+        User user = userRepository.findByUsernameIgnoreCase(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User", username));
+
+        Movie movie = movieRepository.findById(movieId)
+                .orElseThrow(() -> new ResourceNotFoundException("Movie", movieId));
+
+        Review review = modelMapper.map(dto, Review.class);
+        review.setUser(user);
+        review.setMovie(movie);
+
+        Review savedReview = reviewRepository.save(review);
+        return modelMapper.map(savedReview, ReviewResponseDto.class);

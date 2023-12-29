@@ -14,14 +14,14 @@ import valera.gord.magnusmovieproject.dto.SignInResponseDto;
 import valera.gord.magnusmovieproject.dto.SignUpRequestDto;
 import valera.gord.magnusmovieproject.dto.UserResponseDto;
 import valera.gord.magnusmovieproject.security.JWTProvider;
-import valera.gord.magnusmovieproject.service.UserServiceImpl;
+import valera.gord.magnusmovieproject.service.UserDetailsServiceImpl;
 
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
 public class AuthController {
-    private final UserServiceImpl authService;
+    private final UserDetailsServiceImpl authService;
     private final JWTProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
     @PostMapping("/signup")

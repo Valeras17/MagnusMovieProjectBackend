@@ -5,10 +5,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import valera.gord.magnusmovieproject.dto.MovieRequestDto;
-import valera.gord.magnusmovieproject.dto.MovieResponseDto;
-import valera.gord.magnusmovieproject.dto.MovieWithReviewDto;
+import valera.gord.magnusmovieproject.dto.*;
 import valera.gord.magnusmovieproject.entity.Movie;
 import valera.gord.magnusmovieproject.error.BadRequestException;
 import valera.gord.magnusmovieproject.error.ResourceNotFoundException;
@@ -39,13 +38,11 @@ public class MovieServiceImpl implements MovieService {
 
         @Override
         public List<MovieResponseDto> getAllMovies() {
-            List<Movie> movies = movieRepository.findAll();
-            if (movies.isEmpty()) {
-                throw new ResourceNotFoundException("Movies", "No movies found");
-            }
-            return movies.stream()
-                    .map(movie -> modelMapper.map(movie, MovieResponseDto.class))
-                    .collect(Collectors.toList());
+            return movieRepository
+                    .findAll()
+                    .stream()
+                    .map(p->modelMapper.map(p,MovieResponseDto.class))
+                    .toList();//List<Post>-->List<PostDto>
         }
 
     @Override
@@ -83,15 +80,23 @@ public class MovieServiceImpl implements MovieService {
     }
     //Pagination
     @Override
-    public List<MovieWithReviewDto> getAllMovies(int pageNo, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNo,pageSize);
-        Page<Movie> page = movieRepository.findAll(pageable);
-        return
-                page.getContent()
-                        .stream()
-                        .map(movie -> modelMapper.map(movie, MovieWithReviewDto.class))
-                        .toList();
+    public MoviePageResponseDto getAllMovies(int pageNo, int pageSize, String sortBy, String sortDir) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.Direction.fromString(sortDir), sortBy);
 
+        Page<Movie> page = movieRepository.findAll(pageable);
+        List<MovieWithReviewDto> movies = page.getContent().stream()
+                .map(movie -> modelMapper.map(movie, MovieWithReviewDto.class))
+                .collect(Collectors.toList());
+
+        return MoviePageResponseDto.builder()
+                .results(movies)
+                .pageSize(pageSize)
+                .pageNo(pageNo)
+                .totalPages(page.getTotalPages())
+                .totalMovies(page.getTotalElements())
+                .isLast(page.isLast())
+                .isFirst(page.isFirst())
+                .build();
     }
 
 

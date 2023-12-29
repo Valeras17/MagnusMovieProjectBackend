@@ -16,7 +16,7 @@ public final class ReviewRequestDto {
 
     private String rating;
     @NotNull
-    @Size(min = 3,max = 1000)
+    @Size(max = 1000)
     private String textReview;
 
 }

@@ -4,29 +4,29 @@ Content-Type: application/json
 
 
 {
-  "email": "mike@gmail.com",
-  "username": "mike",
+  "email": "john3@gmailjohn.com",
+  "username": "john3",
   "password": "Password1!"
 }
 
 
 
-### sign a User in:
+### sign user in:
 POST http://localhost:8080/api/v1/auth/signin
 Content-Type: application/json
 
 {
-  "username": "mike",
+  "username": "john3",
   "password": "Password1!"
 }
 
 
-### Get all movies:
+### Get all movies :
 GET http://localhost:8080/api/v1/movies
-Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaWtlIiwiaWF0IjoxNzAzMjA0MDY5LCJleHAiOjE3MDU3OTYwNjl9.d6TIwBiPpVMYKjOz1xAca_HM4b-IQwSjwKmWwM5dDP59Q5DeDAo-VMWkClcRTpOFRohjxbQq-roMY65iuJyF1g
+Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huMyIsImlhdCI6MTcwMzg2Nzg2NSwiZXhwIjoxNzA2NDU5ODY1fQ.olSOAP8LngM6JSSz7EMlK7VklGq8vBiAWpfsaQEsagZUF4LWTPb2J8RU2M6RG4BXJxvRO89uaJVLx-zUJv_tdA
 
 
 
-### Get all movies:
+### Get all movies :
 GET http://localhost:8080/api/v1/movies
-Authorization: Basic mike Password1!
+Authorization: Basic john3 Password1!

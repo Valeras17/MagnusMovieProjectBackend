@@ -28,14 +28,14 @@ public class MovieRequestDto {
     private LocalDate releaseDate;
 
     @NotNull
-    @Size(min = 3,max = 50)
+    @Size(min = 2,max = 50)
     private String genre;
     @NotNull
     private Integer duration;
     @NotNull
-    @Size(min = 3,max = 50)
+    @Size(max = 50)
     private String director;
     @NotNull
-    @Size(min = 3,max = 1000)
+    @Size(max = 1000)
     private String cast;
 }

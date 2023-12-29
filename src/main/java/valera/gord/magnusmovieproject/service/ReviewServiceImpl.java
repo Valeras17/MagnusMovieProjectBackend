@@ -2,6 +2,7 @@ package valera.gord.magnusmovieproject.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import valera.gord.magnusmovieproject.dto.ReviewRequestDto;
 import valera.gord.magnusmovieproject.dto.ReviewResponseDto;
@@ -15,7 +16,7 @@ import valera.gord.magnusmovieproject.repository.UserRepository;
 
 import java.util.List;
 
-@Service
+    @Service
     @RequiredArgsConstructor
     public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
@@ -23,22 +24,24 @@ import java.util.List;
     private final MovieRepository movieRepository;
     private final ModelMapper modelMapper;
 
-    @Override
-    public ReviewResponseDto addNewReview(long movieId, long userId, ReviewRequestDto dto) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User", userId));
-        Movie movie = movieRepository.findById(movieId)
-                .orElseThrow(() -> new ResourceNotFoundException("Movie", movieId));
+        @Override
+        public ReviewResponseDto addNewReview(long movieId, ReviewRequestDto dto, Authentication authentication) {
+            String username = authentication.getName();
+            User user = userRepository.findByUsernameIgnoreCase(username)
+                    .orElseThrow(() -> new ResourceNotFoundException("User", username));
 
-        Review review = modelMapper.map(dto, Review.class);
-        review.setUser(user);
-        review.setMovie(movie);
+            Movie movie = movieRepository.findById(movieId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Movie", movieId));
 
-        Review savedReview = reviewRepository.save(review);
-        return modelMapper.map(savedReview, ReviewResponseDto.class);
-    }
+            Review review = modelMapper.map(dto, Review.class);
+            review.setUser(user);
+            review.setMovie(movie);
 
-    @Override
+            Review savedReview = reviewRepository.save(review);
+            return modelMapper.map(savedReview, ReviewResponseDto.class);
+        }
+
+        @Override
     public List<ReviewResponseDto> findReviewByMovieId(long movieId) {
         if (!movieRepository.existsById(movieId)) {
             throw new ResourceNotFoundException("movie", movieId);
