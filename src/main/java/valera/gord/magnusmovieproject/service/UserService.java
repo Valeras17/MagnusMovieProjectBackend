@@ -10,25 +10,21 @@ public interface UserService {
 
     UserResponseDto createNewUser(UserRequestDto userRequestDto);
 
-
-
     List<UserResponseDto> findAllUsers();
-
-
 
     UserResponseDto findUserById(long id);
 
-
-
     UserResponseDto updateUserById(UserRequestDto userRequestDto,  long id );
-
-
 
     UserResponseDto deleteUserById(long id);
 
     List<UserResponseDto> deleteAllUsers();
 
  UserPageDto getAllUsers(int pageNo, int pageSize, String sortBy, String sortDir);
+
+
+
+
 
 
 }

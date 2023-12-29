@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class MovieRequestDto {
     @NotNull
-    @Size(min = 2,max = 255)
+    @Size(min = 3,max = 255)
     @UniqueTitle
     private String title;
     @NotNull
@@ -28,14 +28,14 @@ public class MovieRequestDto {
     private LocalDate releaseDate;
 
     @NotNull
-    @Size(min = 2,max = 50)
+    @Size(min = 3,max = 50)
     private String genre;
     @NotNull
     private Integer duration;
     @NotNull
-    @Size(min = 2,max = 50)
+    @Size(min = 3,max = 50)
     private String director;
     @NotNull
-    @Size(min = 5,max = 1000)
+    @Size(min = 3,max = 1000)
     private String cast;
 }

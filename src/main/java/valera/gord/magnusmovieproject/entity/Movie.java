@@ -3,7 +3,6 @@ package valera.gord.magnusmovieproject.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +17,7 @@ import java.util.Set;
 @Table(uniqueConstraints = {@UniqueConstraint(columnNames = "title")})
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     @NotNull
     private String title;
@@ -35,7 +34,6 @@ public class Movie {
     @NotNull
     private String cast;
 
-    // Отношение с отзывами
     @OneToMany(
             mappedBy = "movie",
             cascade = CascadeType.ALL,

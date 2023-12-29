@@ -16,7 +16,7 @@ import valera.gord.magnusmovieproject.service.UserService;
 import java.util.List;
 
 
-@Builder
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/movies")

@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
@@ -21,6 +22,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @PostMapping
+    @PreAuthorize("haseRole('ADMIN')")
     public ResponseEntity<MovieResponseDto> addMovie(@RequestBody @Valid MovieRequestDto movieRequestDto) {
         MovieResponseDto movieResponseDto = movieService.addMovie(movieRequestDto);
         return new ResponseEntity<>(movieResponseDto, HttpStatus.CREATED);

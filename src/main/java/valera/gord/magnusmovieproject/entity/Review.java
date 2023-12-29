@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String textReview;
     private String rating;

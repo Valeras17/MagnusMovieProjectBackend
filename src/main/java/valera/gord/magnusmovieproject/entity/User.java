@@ -1,11 +1,11 @@
 package valera.gord.magnusmovieproject.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity(name = "users")
 @Getter
@@ -15,8 +15,8 @@ import lombok.*;
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @GeneratedValue
+    @NotNull
     private Long id;
     @NotNull
     private String username;
@@ -24,5 +24,15 @@ public class User {
     private String email;
     @NotNull
     private String password;
+
+
+    @OneToMany
+    private List<Review> reviews;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable
+    private Set<Role> roles;
+
+
 
 }
