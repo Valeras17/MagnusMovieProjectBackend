@@ -37,10 +37,7 @@ public ResponseEntity<ReviewResponseDto> addNewReview(
             .toUri();
     return ResponseEntity.created(uri).body(saved);
 
-
-
 }
-
 
 //GET http://localhost:8080/api/v1/movies/1/reviews
     @GetMapping("/{movieId}/reviews")
@@ -53,14 +50,15 @@ public ResponseEntity<ReviewResponseDto> addNewReview(
     @PutMapping("/reviews/{reviewId}")
     public ResponseEntity<ReviewResponseDto> updateReviewById(
             @PathVariable("reviewId")long reviewId,
-            @RequestBody ReviewRequestDto dto
+            @RequestBody ReviewRequestDto dto,
+            Authentication authentication
     ) {
-        return ResponseEntity.ok(reviewService.updateReview(reviewId,dto));
+        return ResponseEntity.ok(reviewService.updateReview(reviewId,dto,authentication));
     }
 
     @DeleteMapping("/reviews/{reviewId}")
-    public ResponseEntity<ReviewResponseDto> deleteReviewById(@PathVariable long reviewId){
-        return ResponseEntity.ok(reviewService.deleteReviewById(reviewId));
+    public ResponseEntity<ReviewResponseDto> deleteReviewById(@PathVariable long reviewId,Authentication authentication){
+        return ResponseEntity.ok(reviewService.deleteReviewById(reviewId,authentication));
     }
 
 }

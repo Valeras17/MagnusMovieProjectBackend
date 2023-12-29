@@ -53,7 +53,6 @@ public class MovieController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MovieResponseDto> deleteMovieById(@PathVariable @Valid @NotNull long id) {
         return ResponseEntity.ok(movieService.deleteMovieById(id));
-
     }
 
     // GET api/v1/movies/page
@@ -66,10 +65,5 @@ public class MovieController {
             @RequestParam(value = "sortDir", required = false, defaultValue = "asc") String sortDir) {
         return ResponseEntity.ok(movieService.getAllMovies(pageNo, pageSize, sortBy, sortDir));
     }
-
-
-
-
-
 
     }

@@ -9,9 +9,8 @@ import java.util.List;
 public interface ReviewService {
     ReviewResponseDto addNewReview(long movieId, ReviewRequestDto dto, Authentication authentication);
     List<ReviewResponseDto> findReviewByMovieId(long movieId);
-
-    ReviewResponseDto updateReview( long reviewId, ReviewRequestDto dto);
-    ReviewResponseDto deleteReviewById(long reviewId);
+    ReviewResponseDto updateReview(long reviewId, ReviewRequestDto dto, Authentication authentication);
+    ReviewResponseDto deleteReviewById(long reviewId, Authentication authentication);
 
 
 
