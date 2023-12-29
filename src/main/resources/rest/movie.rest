@@ -1,28 +1,29 @@
 ### Add new Movie :
 POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
-Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huMyIsImlhdCI6MTcwMzg2Njk2NiwiZXhwIjoxNzA2NDU4OTY2fQ.Lm5pqJcRQZ1gKxv2ML8ARG2acr_tm2gnZ-ZzPaERu_PG2q1XOzeJhd9BI5cnCJmn6PKEoQ_-MmWDGFuQHFYNow
+Authorization: Basic admin admin
 
 {
-  "title": "batman 1 team",
+  "title": "batman 6 team",
   "description": "man1 of rubber fist",
   "duration": 111,
-  "genre": "cartoon1!",
+  "genre": "cartoon32!",
   "cast": "Deni deVito1",
   "director": "Vilnev Fry1",
   "releaseDate": "1903-05-05"
 }
 
 
-### INVALID request add Movie :
+###  Add another  Movie :
 POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
+Authorization: Basic admin admin
 
 {
   "title": "batman 5 team",
   "description": "man of rubber fist",
   "duration": 200,
-  "genre": "cartoon!",
+  "genre": "cartoon2!",
   "cast": "Deni deVito",
   "director": "Vilnev Fry",
   "releaseDate": "2005-05-05"
@@ -31,20 +32,23 @@ Content-Type: application/json
 
 ### Get all Movies :
 GET http://localhost:8080/api/v1/movies
-Authorization: Basic admin admin
+Authorization: Basic john3 Password1!
 
 
 ### Valid request get movie by id :
-GET http://localhost:8080/api/v1/movies/4
+GET http://localhost:8080/api/v1/movies/52
+Authorization: Basic john3 Password1!
 
 
 ### Invalid request get movie by id :
 GET http://localhost:8080/api/v1/movies/1111
+Authorization: Basic john3 Password1!
 
 
 ### Update movie by id :
 PUT http://localhost:8080/api/v1/movies/1
 Content-Type: application/json
+Authorization: Basic admin admin
 
 {
   "title": "batman 20 team",
@@ -58,12 +62,15 @@ Content-Type: application/json
 
 
 ### Delete movie by id :
-DELETE http://localhost:8080/api/v1/movies/1
+DELETE http://localhost:8080/api/v1/movies/52
 Content-Type: application/json
+Authorization: Basic admin admin
 
 
-### Get movie  page 1 :
-GET http://localhost:8080/api/v1/movies/page?pageSize=2&pageNo=0
+
+### Get movie  page with sort and sort order:
+GET http://localhost:8080/api/v1/movies/page?pageSize=2&pageNo=0&sortBy=id&sortDir=asc
+Authorization: Basic john3 Password1!
 
 
 

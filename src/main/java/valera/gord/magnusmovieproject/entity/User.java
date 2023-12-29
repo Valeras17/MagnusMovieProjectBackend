@@ -31,13 +31,13 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "user_roles",
+            name = "users_roles",
             joinColumns = @JoinColumn(
-                    name = "user_id",
+                    name = "users_id",
                     referencedColumnName = "id"
             ),
             inverseJoinColumns = @JoinColumn(
-                    name = "role_id",
+                    name = "roles_id",
                     referencedColumnName = "id"
             )
     )

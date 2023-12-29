@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import valera.gord.magnusmovieproject.dto.MoviePageResponseDto;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
@@ -21,6 +22,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MovieResponseDto> addMovie(
             @RequestBody @Valid MovieRequestDto movieRequestDto) {
         MovieResponseDto movieResponseDto = movieService.addMovie(movieRequestDto);
@@ -40,6 +42,7 @@ public class MovieController {
 
     // api/v1/movies/1
    @PutMapping("/{id}")
+   @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MovieResponseDto> updateMovieById(
             @PathVariable @Valid @NotNull long id,
             @Valid @RequestBody MovieRequestDto dto){
@@ -47,6 +50,7 @@ public class MovieController {
     }
     // api/v1/movies/1
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MovieResponseDto> deleteMovieById(@PathVariable @Valid @NotNull long id) {
         return ResponseEntity.ok(movieService.deleteMovieById(id));
 
