@@ -4,27 +4,27 @@ Content-Type: application/json
 Authorization: Basic admin admin
 
 {
-  "textReview": "very bad bad  movie2!",
+  "textReview": "very Cool  movie2!",
   "rating": "8"
 }
 
 
-### Get review by movie id  :
+### Get all reviews by movie id  :
 GET http://localhost:8080/api/v1/movies/1/reviews
 Authorization: Basic john3 Password1!
 
-### Get review by movie id, INVALID request movies id:
+### Get reviews by movie id, INVALID request movies id:
 GET http://localhost:8080/api/v1/movies/-1/reviews
 Authorization: Basic john3 Password1!
 
 
 ### Update review by id:Valid request
-PUT http://localhost:8080/api/v1/movies/reviews/2
+PUT http://localhost:8080/api/v1/movies/reviews/3
 Content-Type: application/json
-Authorization: Basic john3 Password1!
+Authorization: Basic admin admin
 
 {
-  "textReview": "gavno vozvrashaetsya 6",
+  "textReview": "grom 4 stop",
   "rating": "1"
 }
 
@@ -41,7 +41,7 @@ Authorization: Basic admin admin
 
 
 ### Delete review by id:Valid request
-DELETE http://localhost:8080/api/v1/movies/reviews/2
+DELETE http://localhost:8080/api/v1/movies/reviews/3
 Authorization: Basic admin admin
 
 

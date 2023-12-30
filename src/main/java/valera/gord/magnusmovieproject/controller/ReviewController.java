@@ -1,8 +1,9 @@
 package valera.gord.magnusmovieproject.controller;
-
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +14,14 @@ import valera.gord.magnusmovieproject.service.ReviewService;
 
 import java.util.List;
 
-
-
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/movies")
+@SecurityRequirement(
+        name = "Bearer Authentication"
+)
 public class ReviewController {
     private final ReviewService reviewService;
-
 
 //POST http://localhost:8080/api/v1/movies/1/reviews
 @PostMapping("/{id}/reviews")
@@ -57,6 +58,7 @@ public ResponseEntity<ReviewResponseDto> addNewReview(
     }
 
     @DeleteMapping("/reviews/{reviewId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ReviewResponseDto> deleteReviewById(@PathVariable long reviewId,Authentication authentication){
         return ResponseEntity.ok(reviewService.deleteReviewById(reviewId,authentication));
     }
