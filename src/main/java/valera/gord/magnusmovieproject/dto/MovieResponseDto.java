@@ -19,12 +19,20 @@ public class MovieResponseDto {
     private Long id;
 
     private String title;
+
     private String description;
+
     private LocalDate releaseDate;
+
     private String genre;
-    private Integer duration; // in minutes
+
+    private Integer duration;
+
     private String director;
-    private String cast;
+
+    private String poster;
+
+
 
 
 }

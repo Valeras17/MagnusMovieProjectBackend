@@ -4,8 +4,8 @@ Content-Type: application/json
 
 
 {
-  "email": "valg@gmail.val.com",
-  "username": "valera1",
+  "email": "john@gmail.com",
+  "username": "john",
   "password": "Password1!"
 }
 
@@ -23,8 +23,7 @@ Content-Type: application/json
 
 ### Get all movies :
 GET http://localhost:8080/api/v1/movies
-Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huMyIsImlhdCI6MTcwMzg3NTM2NSwiZXhwIjoxNzA2NDY3MzY1fQ.7rcAMknW6NSwO6OEBJCIFW4tN9owSNF4gOIc0MEFlqNI7XHqrTrQgUKPfx_ebf6krSQicuHvokHL_eLZZ-OsZQ
-
+Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YWxlcmExIiwiaWF0IjoxNzA0MDA0MzY1LCJleHAiOjE3MDY1OTYzNjV9.KAcQEfQhdSCR-suO2BsPZ7LKkiXOZ8C6ltNrG03WF7as5oyDtRobrHD3w3ig3rVu6UVDjujJIX2ucTfRluod2A
 
 ### Get all movies :
 GET http://localhost:8080/api/v1/movies

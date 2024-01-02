@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME) //we need to check in runtime
 @Constraint(validatedBy = {UniqueEmailValidator.class})
 public @interface UniqueEmail {
-    String message() default "The date must be between 1900 and the current date";
+    String message() default "Email  must be unique";
     //(קבוצות מאפשרות לקבץ ולידטורים יחד) groups validation enable/
     Class<?>[] groups() default {};
     //the annotation stores a payload

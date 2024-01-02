@@ -11,8 +11,4 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
         Optional<Movie> findByTitleOrReleaseDate(String title, LocalDate releaseDate);
         Optional<Movie> findByTitle(String title);
 
-
-
-
-
 }

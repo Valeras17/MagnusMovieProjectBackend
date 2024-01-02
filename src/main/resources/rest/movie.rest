@@ -1,7 +1,7 @@
 ### Add new Movie :
 POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
-Authorization: Basic admin admin
+Authorization: Basic valera1 Password1!
 
 {
   "title": "batman 6 team",
@@ -17,7 +17,7 @@ Authorization: Basic admin admin
 ###  Add another  Movie :
 POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
-Authorization: Basic admin admin
+Authorization: Basic valera1 Password1!
 
 {
   "title": "batman 5 team",
@@ -32,12 +32,12 @@ Authorization: Basic admin admin
 
 ### Get all Movies :
 GET http://localhost:8080/api/v1/movies
-Authorization: Basic john3 Password1!
+Authorization: Basic valera1 Password1!
 
 
 ### Valid request get movie by id :
 GET http://localhost:8080/api/v1/movies/52
-Authorization: Basic john3 Password1!
+Authorization: Basic valera1 Password1!
 
 
 ### Invalid request get movie by id :

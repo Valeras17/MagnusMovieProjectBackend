@@ -1,5 +1,9 @@
 package valera.gord.magnusmovieproject.dto;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,15 +17,22 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieWithReviewDto {
+
     private Long id;
 
     private String title;
+
     private String description;
+
     private LocalDate releaseDate;
+
     private String genre;
+
     private Integer duration;
+
     private String director;
-    private String cast;
+
+    private String poster;
 
     private List<ReviewResponseDto> reviews;
 

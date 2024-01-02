@@ -7,7 +7,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import valera.gord.magnusmovieproject.dto.*;
+import valera.gord.magnusmovieproject.dto.MoviePageResponseDto;
+import valera.gord.magnusmovieproject.dto.MovieRequestDto;
+import valera.gord.magnusmovieproject.dto.MovieResponseDto;
+import valera.gord.magnusmovieproject.dto.MovieWithReviewDto;
 import valera.gord.magnusmovieproject.entity.Movie;
 import valera.gord.magnusmovieproject.error.BadRequestException;
 import valera.gord.magnusmovieproject.error.ResourceNotFoundException;
@@ -64,7 +67,6 @@ public class MovieServiceImpl implements MovieService {
         savedMovieDb.setDescription(dto.getDescription());
         savedMovieDb.setGenre(dto.getGenre());
         savedMovieDb.setDirector(dto.getDirector());
-        savedMovieDb.setCast(dto.getCast());
         savedMovieDb.setDuration(dto.getDuration());
 
         var saved = movieRepository.save(savedMovieDb);
@@ -101,6 +103,7 @@ public class MovieServiceImpl implements MovieService {
 
 
 }
+
 
 
 

@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ElementType.FIELD})
 @Retention(RUNTIME)
 public @interface DateRange {
-    String message() default "The date must be between 1900 and the current date";
+    String message() default "";
 
     Class<?>[] groups() default {};
 

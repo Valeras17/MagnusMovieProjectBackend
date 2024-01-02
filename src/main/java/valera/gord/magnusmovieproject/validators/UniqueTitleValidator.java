@@ -17,7 +17,6 @@ public class UniqueTitleValidator implements ConstraintValidator<UniqueTitle,Str
     @Override
     public boolean isValid(String title, ConstraintValidatorContext constraintValidatorContext) {
         Optional<Movie> movie = movieRepository.findByTitle(title);
-        //if post  with same title does not exist -->GOOD!
         return movie.isEmpty();
     }
 }

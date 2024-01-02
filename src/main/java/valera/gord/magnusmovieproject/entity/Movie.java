@@ -22,8 +22,10 @@ public class Movie {
     @NotNull
     private String title;
     @NotNull
+    @Column(name = "overview")
     private String description;
     @NotNull
+    @Column(name = "release_date")
     private LocalDate releaseDate;
     @NotNull
     private String genre;
@@ -32,7 +34,8 @@ public class Movie {
     @NotNull
     private String director;
     @NotNull
-    private String cast;
+    @Column(name =  "poster_path")
+    private String poster;
 
     @OneToMany(
             mappedBy = "movie",
