@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ReviewResponseDto {
     private Long id;
     private String textReview;
-    private Long rating;
-
+    private Integer rating;
+    private MovieResponseDto movie;
     private UserResponseDto user;
 }

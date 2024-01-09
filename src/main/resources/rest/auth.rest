@@ -4,7 +4,7 @@ Content-Type: application/json
 
 
 {
-  "email": "john@gmail.com",
+  "email": "john2@gmail.com",
   "username": "john",
   "password": "Password1!"
 }
@@ -16,15 +16,16 @@ POST http://localhost:8080/api/v1/auth/signin
 Content-Type: application/json
 
 {
-  "username": "valera1",
+  "username": "john",
   "password": "Password1!"
 }
 
 
-### Get all movies :
+### Get all movies :jwt pass
 GET http://localhost:8080/api/v1/movies
-Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YWxlcmExIiwiaWF0IjoxNzA0MDA0MzY1LCJleHAiOjE3MDY1OTYzNjV9.KAcQEfQhdSCR-suO2BsPZ7LKkiXOZ8C6ltNrG03WF7as5oyDtRobrHD3w3ig3rVu6UVDjujJIX2ucTfRluod2A
+Authorization: BEARER eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YWxlcmExIiwiaWF0IjoxNzA0MjQ0ODg2LCJleHAiOjE3MDY4MzY4ODZ9.oxv74hqojx5dzGW385JXIRjFQBfyHJQuqx9m1tJlYeIguETtbPXf3v5f5UETsNcjZFkPpI3AyOi15l9kduQN0g
 
-### Get all movies :
+
+### Get all movies : Basic pass
 GET http://localhost:8080/api/v1/movies
 Authorization: Basic john3 Password1!

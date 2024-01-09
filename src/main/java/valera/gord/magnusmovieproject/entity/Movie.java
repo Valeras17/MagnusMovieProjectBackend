@@ -3,7 +3,6 @@ package valera.gord.magnusmovieproject.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,22 +21,18 @@ public class Movie {
     @NotNull
     private String title;
     @NotNull
-    @Column(name = "overview")
-    private String description;
+    private String year;
     @NotNull
-    @Column(name = "release_date")
-    private LocalDate releaseDate;
+    private String url;
+    @NotNull
+    private String poster;
     @NotNull
     private String genre;
     @NotNull
-    private Integer duration;
-    @NotNull
-    private String director;
-    @NotNull
-    @Column(name =  "poster_path")
-    private String poster;
+    private String backdropScreen;
 
-    @OneToMany(
+
+    @OneToMany(fetch = FetchType.EAGER,
             mappedBy = "movie",
             cascade = CascadeType.ALL,
             orphanRemoval = true)

@@ -1,14 +1,18 @@
 package valera.gord.magnusmovieproject.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import valera.gord.magnusmovieproject.entity.Movie;
-
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 public interface MovieRepository extends JpaRepository<Movie,Long> {
 
-        Optional<Movie> findByTitleOrReleaseDate(String title, LocalDate releaseDate);
+        Optional<Movie> findByTitleOrYear(String title, String year);
         Optional<Movie> findByTitle(String title);
+        @Query("SELECT DISTINCT m.genre FROM Movie m")
+        List<String> findDistinctGenres();
+
+
 
 }

@@ -1,16 +1,15 @@
 ### Add new Movie :
 POST http://localhost:8080/api/v1/movies
 Content-Type: application/json
-Authorization: Basic valera1 Password1!
+Authorization: Basic john Password1!
 
 {
-  "title": "batman 6 team",
-  "description": "man1 of rubber fist",
-  "duration": 111,
-  "genre": "cartoon32!",
-  "cast": "Deni deVito1",
-  "director": "Vilnev Fry1",
-  "releaseDate": "1903-05-05"
+  "title": "batman 8 team",
+  "poster": "posterurl",
+  "url": "url url!",
+  "year": "1999",
+  "genre": "action",
+  "backdropScreen": "1999"
 }
 
 
@@ -20,13 +19,13 @@ Content-Type: application/json
 Authorization: Basic valera1 Password1!
 
 {
-  "title": "batman 5 team",
-  "description": "man of rubber fist",
-  "duration": 200,
-  "genre": "cartoon2!",
-  "cast": "Deni deVito",
-  "director": "Vilnev Fry",
-  "releaseDate": "2005-05-05"
+  "title": "batman 7 team",
+  "poster": "posterurl",
+  "duration": "111",
+  "url": "url url!",
+  "year": "1999",
+  "genre": "comedy",
+  "backdropScreen": "1999"
 }
 
 
@@ -36,7 +35,7 @@ Authorization: Basic valera1 Password1!
 
 
 ### Valid request get movie by id :
-GET http://localhost:8080/api/v1/movies/52
+GET http://localhost:8080/api/v1/movies/1
 Authorization: Basic valera1 Password1!
 
 
@@ -46,31 +45,37 @@ Authorization: Basic john3 Password1!
 
 
 ### Update movie by id :
-PUT http://localhost:8080/api/v1/movies/1
+PUT http://localhost:8080/api/v1/movies/102
 Content-Type: application/json
-Authorization: Basic admin admin
+Authorization: Basic john Password1!
 
 {
-  "title": "batman 20 team",
-  "description": "man of rubber fist and red shirt",
-  "duration": 200,
-  "genre": "cartoon!",
-  "cast": "Ben deVito",
-  "director": "Nolan Fry",
-  "releaseDate": "2007-07-07"
+  "title": "batman 112 team",
+  "poster": "posterurl",
+  "duration": "111",
+  "url": "url url!",
+  "year": "1999",
+  "genre": "comedy",
+  "backdropScreen": "1999"
 }
 
 
 ### Delete movie by id :
 DELETE http://localhost:8080/api/v1/movies/52
 Content-Type: application/json
-Authorization: Basic admin admin
+Authorization: Basic john Password1!
 
 
 
 ### Get movie  page with sort and sort order:
-GET http://localhost:8080/api/v1/movies/page?pageSize=2&pageNo=0&sortBy=id&sortDir=asc
-Authorization: Basic john3 Password1!
+GET http://localhost:8080/api/v1/movies/page?pageSize=1&pageNo=0&sortBy=id&sortDir=asc
+Authorization: Basic john Password1!
+
+
+### Get  Movies by Genre :
+GET http://localhost:8080/api/v1/movies/genres
+Authorization: Basic john Password1!
+
 
 
 

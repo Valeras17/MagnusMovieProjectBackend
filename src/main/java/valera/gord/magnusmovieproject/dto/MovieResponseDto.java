@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Builder
 @Data
 @AllArgsConstructor
@@ -17,22 +15,12 @@ public class MovieResponseDto {
     @Id
     @GeneratedValue
     private Long id;
-
     private String title;
-
-    private String description;
-
-    private LocalDate releaseDate;
-
-    private String genre;
-
-    private Integer duration;
-
-    private String director;
-
+    private String year;
+    private String url;
     private String poster;
-
-
+    private String genre;
+    private String backdropScreen;
 
 
 }

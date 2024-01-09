@@ -1,12 +1,13 @@
 package valera.gord.magnusmovieproject.dto;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Range;
 
 @Data
 @Builder
@@ -14,8 +15,9 @@ import org.hibernate.validator.constraints.Range;
 @NoArgsConstructor
 public final class ReviewRequestDto {
     @NotNull
-    @Range(min = 1,max = 10)
-    private String rating;
+    @Min(1)
+    @Max(5)
+    private Integer rating;
     @NotNull
     @Size(max = 1000)
     private String textReview;

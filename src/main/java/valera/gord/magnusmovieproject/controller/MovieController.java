@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,12 +20,12 @@ import valera.gord.magnusmovieproject.dto.MoviePageResponseDto;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
 import valera.gord.magnusmovieproject.service.MovieService;
-
+import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/movies")
+@RequiredArgsConstructor
 @SecurityRequirement(
         name = "Bearer Authentication"
 )
@@ -106,4 +107,16 @@ public class MovieController {
         return ResponseEntity.ok(movieService.getAllMovies(pageNo, pageSize, sortBy, sortDir));
     }
 
+
+    @GetMapping("/genres")
+    public ResponseEntity<List<String>> getDistinctGenres() {
+        try {
+            List<String> genres = movieService.getDistinctGenres();
+            return ResponseEntity.ok(genres);
+        } catch (ServiceException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonList("Error fetching genres: " + e.getMessage()));
+        }
     }
+
+}

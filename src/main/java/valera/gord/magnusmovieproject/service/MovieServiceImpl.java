@@ -1,6 +1,8 @@
 package valera.gord.magnusmovieproject.service;
 
+import io.jsonwebtoken.lang.Collections;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.service.spi.ServiceException;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +17,6 @@ import valera.gord.magnusmovieproject.entity.Movie;
 import valera.gord.magnusmovieproject.error.BadRequestException;
 import valera.gord.magnusmovieproject.error.ResourceNotFoundException;
 import valera.gord.magnusmovieproject.repository.MovieRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,6 +27,7 @@ public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
     private final ModelMapper modelMapper;
+
 
     @Override
     public MovieResponseDto addMovie(MovieRequestDto movieRequestDto) {
@@ -62,13 +64,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MovieResponseDto updateMovieById(MovieRequestDto dto, long id) {
         var savedMovieDb = getMovieEntity(id);
-
         savedMovieDb.setTitle(dto.getTitle());
-        savedMovieDb.setDescription(dto.getDescription());
-        savedMovieDb.setGenre(dto.getGenre());
-        savedMovieDb.setDirector(dto.getDirector());
-        savedMovieDb.setDuration(dto.getDuration());
-
         var saved = movieRepository.save(savedMovieDb);
         return modelMapper.map(saved,MovieResponseDto.class);
     }
@@ -77,7 +73,6 @@ public class MovieServiceImpl implements MovieService {
     public MovieResponseDto deleteMovieById(long id) {
         Movie movie = getMovieEntity(id);
         movieRepository.deleteById(id);
-
         return modelMapper.map(movie,MovieResponseDto.class);
     }
     //Pagination
@@ -101,20 +96,20 @@ public class MovieServiceImpl implements MovieService {
                 .build();
     }
 
+    @Override
+    public List<String> getDistinctGenres() {
+        try {
+            List<String> genres = movieRepository.findDistinctGenres();
+            if (genres.isEmpty()) {
+                return Collections.emptyList();
+            }
+            return genres;
+        } catch (Exception e) {
+            throw new ServiceException("Failed to fetch genres from the database.");
+        }
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

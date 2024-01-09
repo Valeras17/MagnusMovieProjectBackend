@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import java.io.IOException;
 
 @RequiredArgsConstructor
@@ -26,19 +25,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         var token = getJWTFromRequest(request);
-        //if we throw a JWT exception, the chain stops:
+
         if (StringUtils.hasText(token) && jwtProvider.validateToken(token)){
             var username = jwtProvider.getUsernameFromToken(token);
             var user = userDetailsService.loadUserByUsername(username);
             var authentication = new UsernamePasswordAuthenticationToken(
                     user.getUsername(), null, user.getAuthorities()
             );
-            //makes the user logged in:
+
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
-        //if no exceptions thrown -> the chain continues.
-        //proceed with the filter chain:
         filterChain.doFilter(request, response);
     }
     /**

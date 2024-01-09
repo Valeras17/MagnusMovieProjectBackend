@@ -18,7 +18,7 @@ public class Review {
     private String textReview;
 
     @NotNull
-    private String rating;
+    private Integer rating;
 
     @ManyToOne
     private User user;

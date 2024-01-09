@@ -6,36 +6,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import valera.gord.magnusmovieproject.validators.DateRange;
 import valera.gord.magnusmovieproject.validators.UniqueTitle;
-
-import java.time.LocalDate;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieRequestDto {
-    @NotNull
-    @Size(min = 3,max = 255)
     @UniqueTitle
+    @NotNull
+    @Size(min = 2,max = 100)
     private String title;
     @NotNull
-    @Size(min = 5,max = 1000)
-    private String description;
+    private String year;
     @NotNull
-    @DateRange
-    private LocalDate releaseDate;
-
+    private String url;
+    @NotNull
+    private String poster;
     @NotNull
     @Size(min = 2,max = 50)
     private String genre;
     @NotNull
-    private Integer duration;
-    @NotNull
-    @Size(max = 50)
-    private String director;
-    @NotNull
-    @Size(max = 1000)
-    private String cast;
+    private String backdropScreen;
+
 }

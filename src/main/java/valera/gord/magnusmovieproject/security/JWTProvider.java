@@ -10,13 +10,12 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import valera.gord.magnusmovieproject.error.BadRequestException;
-
 import java.security.Key;
 import java.util.Date;
 
 @Component
 public class JWTProvider {
-    //read values from application.properties:
+
     @Value("${valera.gord.magnusmovieproject.secret}")
     private String secret;
     @Value("${valera.gord.magnusmovieproject.expires}")
@@ -29,7 +28,6 @@ public class JWTProvider {
 
     public String generateToken(String username) {
         var currentDate = new Date();
-        //future date:
         var expiresDate = new Date(currentDate.getTime() + expires);
         return Jwts.builder()
                 .setSubject(username)

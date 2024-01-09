@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class BadRequestException extends MagnusMovieException{
     private final String resourceName;
-
     public BadRequestException(String resourceName) {
         super("%S was invalid".formatted(resourceName));
         this.resourceName = resourceName;

@@ -1,10 +1,9 @@
 package valera.gord.magnusmovieproject.error;
-//base class for our own app exceptions:
+
 public class MagnusMovieException extends RuntimeException{
-    //1 empty default constructor:
+
     public MagnusMovieException() {
     }
-
     public MagnusMovieException(String message) {
         super(message);
     }

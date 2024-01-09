@@ -3,7 +3,6 @@ package valera.gord.magnusmovieproject.service;
 import org.springframework.security.core.Authentication;
 import valera.gord.magnusmovieproject.dto.ReviewRequestDto;
 import valera.gord.magnusmovieproject.dto.ReviewResponseDto;
-
 import java.util.List;
 
 public interface ReviewService {

@@ -11,7 +11,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import valera.gord.magnusmovieproject.dto.ReviewRequestDto;
 import valera.gord.magnusmovieproject.dto.ReviewResponseDto;
 import valera.gord.magnusmovieproject.service.ReviewService;
-
 import java.util.List;
 
 @RestController

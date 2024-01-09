@@ -24,8 +24,6 @@ public class User {
     private String email;
     @NotNull
     private String password;
-
-
     @OneToMany
     private List<Review> reviews;
 
@@ -42,7 +40,5 @@ public class User {
             )
     )
     private Set<Role> roles;
-
-
 
 }
