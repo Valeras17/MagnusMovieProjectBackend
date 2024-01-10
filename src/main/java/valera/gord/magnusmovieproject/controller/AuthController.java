@@ -15,6 +15,8 @@ import valera.gord.magnusmovieproject.dto.SignUpRequestDto;
 import valera.gord.magnusmovieproject.dto.UserResponseDto;
 import valera.gord.magnusmovieproject.security.JWTProvider;
 import valera.gord.magnusmovieproject.service.UserDetailsServiceImpl;
+import org.springframework.security.core.GrantedAuthority;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -29,15 +31,21 @@ public class AuthController {
         return new ResponseEntity<>(authService.signUp(dto), HttpStatus.CREATED);
     }
     @PostMapping("/signin")
-    public ResponseEntity<SignInResponseDto> signIn(@RequestBody @Valid SignInRequestDto dto){
+    public ResponseEntity<SignInResponseDto> signIn(@RequestBody @Valid SignInRequestDto dto) {
         var user = authService.loadUserByUsername(dto.getUsername());
         var savedPassword = user.getPassword();
         var givenPassword = dto.getPassword();
+
         if (passwordEncoder.matches(givenPassword, savedPassword)) {
-            //grant:
             var token = jwtProvider.generateToken(user.getUsername());
-            return ResponseEntity.ok(new SignInResponseDto(token));
+
+            var roles = user.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .collect(Collectors.toSet());
+
+            return ResponseEntity.ok(new SignInResponseDto(token, roles));
         }
+
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }

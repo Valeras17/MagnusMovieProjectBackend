@@ -77,7 +77,14 @@ GET http://localhost:8080/api/v1/movies/genres
 Authorization: Basic john Password1!
 
 
+### Search  Movies by Genre name:
+GET http://localhost:8080/api/v1/movies/search-by-genre?genre=Action
+Authorization: Basic john Password1!
 
+
+### Search  Movies by title:
+GET http://localhost:8080/api/v1/movies/search?title=troll
+Authorization: Basic john Password1!
 
 
 

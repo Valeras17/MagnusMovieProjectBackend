@@ -1,5 +1,7 @@
 package valera.gord.magnusmovieproject.dto;
 
-public record SignInResponseDto(String jwt) {
+import java.util.Set;
+
+public record SignInResponseDto(String jwt, Set<String> roles) {
 
 }

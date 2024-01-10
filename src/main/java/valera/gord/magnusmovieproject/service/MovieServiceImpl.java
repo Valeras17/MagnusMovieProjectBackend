@@ -109,6 +109,21 @@ public class MovieServiceImpl implements MovieService {
         }
     }
 
+    @Override
+    public List<MovieResponseDto> searchMoviesByGenre(String genre) {
+        List<Movie> movies = movieRepository.findMoviesByGenreIgnoreCase(genre);
+        return movies.stream()
+                .map(movie -> modelMapper.map(movie, MovieResponseDto.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MovieResponseDto> searchMoviesByTitle(String title) {
+        List<Movie> movies = movieRepository.findByTitleContainingIgnoreCase(title);
+        return movies.stream()
+                .map(movie -> modelMapper.map(movie, MovieResponseDto.class))
+                .collect(Collectors.toList());
+    }
 }
 
 
