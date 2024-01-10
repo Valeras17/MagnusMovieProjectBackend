@@ -1,10 +1,8 @@
 package valera.gord.magnusmovieproject.service;
 
-import org.springframework.data.repository.query.Param;
 import valera.gord.magnusmovieproject.dto.MoviePageResponseDto;
 import valera.gord.magnusmovieproject.dto.MovieRequestDto;
 import valera.gord.magnusmovieproject.dto.MovieResponseDto;
-import valera.gord.magnusmovieproject.entity.Movie;
 
 import java.util.List;
 
