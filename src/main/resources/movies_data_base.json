@@ -1,0 +1,114 @@
+[
+  {
+
+    "title": "Puss in Boots: The Last Wish",
+    "releaseDate": "2022",
+    "url": "https://www.youtube.com/watch?v=tHb7WlgyaUc",
+    "genres": "Animation",
+    "poster": "https://image.tmdb.org/t/p/w500/1NqwE6LP9IEdOZ57NCT51ftHtWT.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/r9PkFnRUIthgBp2JZZzD380MWZy.jpg"
+  },
+  {
+
+    "title": "Avatar: The Way of Water",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=d9MyW72ELq0",
+    "genres":  "Adventure",
+    "poster": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg"
+
+
+  },
+  {
+
+    "title": "M3GAN",
+    "releaseDate": "2023",
+    "trailerLink": "https://www.youtube.com/watch?v=BRb4U99OU80",
+    "genres": "Horror",
+    "poster": "https://image.tmdb.org/t/p/w500/xBl5AGw7HXZcv1nNXPlzGgO4Cfo.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/dC4tj1ONdlZ2TWv4XD2SA1KUnJN.jpg"
+
+  },
+  {
+    "title": "Troll",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=AiohkY_XQYQ",
+    "genres": "Fantasy",
+    "poster": "https://image.tmdb.org/t/p/w500/9z4jRr43JdtU66P0iy8h18OyLql.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/53BC9F2tpZnsGno2cLhzvGprDYS.jpg"
+
+
+  },
+  {
+
+    "title": "Black Adam",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=JaV7mmc9HGw",
+    "genres": "Action",
+    "poster": "https://image.tmdb.org/t/p/w500/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+    "backdrops":
+    "https://image.tmdb.org/t/p/original/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"
+
+  },
+  {
+
+    "title": "Avatar",
+    "releaseDate": "2009",
+    "trailerLink": "https://www.youtube.com/watch?v=5PSNL1qE6VY",
+    "genres": "Fantasy",
+    "poster": "https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/o0s4XsEDfDlvit5pDRKjzXR4pp2.jpg"
+
+
+  },
+  {
+
+    "title": "Roald Dahl's Matilda the Musical",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=lroAhsDr2vI",
+    "genres": "Fantasy",
+    "poster": "https://image.tmdb.org/t/p/w500/ga8R3OiOMMgSvZ4cOj8x7prUNYZ.jpg",
+    "backdrops":  "https://image.tmdb.org/t/p/original/nWs0auTqn2UaFGfTKtUE5tlTeBu.jpg"
+
+
+  },
+  {
+
+    "title": "Black Panther: Wakanda Forever",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=_Z3QKkl1WyM",
+    "genres":  "Action",
+    "poster": "https://image.tmdb.org/t/p/w500/cryEN3sWlgB2wTzcUNVtDGI8bkM.jpg",
+    "backdrops":  "https://image.tmdb.org/t/p/original/geI3Mk7nehX1kvyIY3K5ajaiNfI.jpg"
+  },
+  {
+
+    "title": "Strange World",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=bKh2G73gCCs",
+    "genres": "Family",
+    "poster": "https://image.tmdb.org/t/p/w500/kgJ8bX3zDQDM2Idkleis28XSVnu.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/zgFldVKON1Nxp8ui7HVABGKDQKM.jpg"
+
+  },
+  {
+
+    "title": "The Woman King",
+    "releaseDate": "2022",
+    "trailerLink": "https://www.youtube.com/watch?v=3RDaPV_rJ1Y",
+    "genres": "History",
+    "poster": "https://image.tmdb.org/t/p/w500/5O1GLla5vNuegqNxNhKL1OKE1lO.jpg",
+    "backdrops": "https://image.tmdb.org/t/p/original/rdDL4y7BxGyXFEDJgAG4lz89bG2.jpg"
+
+
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "year": "1994",
+    "url": "https://youtu.be/PLl99DlL6b4",
+    "poster": "https://www.themoviedb.org/t/p/original/72rRSPAZ82p3KXoGLz2ddTioMQl.jpg",
+    "genre": "Drama",
+    "backdropScreen": "https://www.themoviedb.org/t/p/original/v8xVDqt8uCul3c3mgx4VpGCwxJC.jpg"
+  }
+]
+ 
